@@ -1,0 +1,42 @@
+group 'org.openlmis.exampleextension'
+version '0.0.1'
+
+apply plugin: 'java'
+apply plugin: 'spring-boot'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath "org.springframework.boot:spring-boot-gradle-plugin:1.3.3.RELEASE"
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile "org.springframework.boot:spring-boot-starter-web"
+    compile project(':openlmis-example')
+}
+
+springBoot {
+    mainClass = "org.openlmis.example.Application"
+}
+
+bootRepackage {
+    enabled = false
+}
+
+jar {
+    baseName = 'openlmis-extension-example'
+    version  = '0.0.1'
+}
+
+//+dopisać task gradlowy który przeniesie tego jara do mainProjectPath/extensions?
+//etc/openlmis/extensions
