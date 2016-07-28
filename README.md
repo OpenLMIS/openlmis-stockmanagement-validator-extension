@@ -36,12 +36,14 @@ Configuration file contains information about which extension should be used for
 If there is no information about extension for specific extension point, the default behavior will be chosen.
 Syntax of xml configuration file:
 
-><extensions>
-><extension>
-><point>org.openlmis.nameOfService.NameOfExtensionPoint</point>
-><className>org.openlmis.nameOfExtensionModule.nameOfExtension</className>
-></extension>
-></extensions>
+```xml
+<extensions>
+<extension>
+<point>org.openlmis.nameOfService.NameOfExtensionPoint</point>
+<className>org.openlmis.nameOfExtensionModule.nameOfExtension</className>
+</extension>
+</extensions>
+```
 
 ## <a name="extensions"></a> Extensions & configuration file directory
 
