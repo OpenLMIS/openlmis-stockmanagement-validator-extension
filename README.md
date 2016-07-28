@@ -38,10 +38,10 @@ Syntax of xml configuration file:
 
 ```xml
 <extensions>
-<extension>
-<point>org.openlmis.nameOfService.NameOfExtensionPoint</point>
-<className>org.openlmis.nameOfExtensionModule.nameOfExtension</className>
-</extension>
+    <extension>
+        <point>org.openlmis.nameOfService.NameOfExtensionPoint</point>
+        <className>org.openlmis.nameOfExtensionModule.nameOfExtension</className>
+    </extension>
 </extensions>
 ```
 
@@ -50,7 +50,8 @@ Syntax of xml configuration file:
 It is possible to change the path where the .jar files and configuration file should be placed.
 It is defined in `docker-compose.yml` file:
 
->volumes:
->      - '/etc/openlmis/extensions:/extensions'
->      - '/etc/openlmis/extensions.xml:/app/extensions.xml'
-
+```
+volumes:
+    - '/etc/openlmis/extensions:/extensions'
+    - '/etc/openlmis/extensions.xml:/app/extensions.xml'
+```
