@@ -8,7 +8,7 @@ This example is meant to show an OpenLMIS 3.x Example Extension Module at work.
 1. Fork/clone this repository from GitHub.
 
  ```shell
- git clone https://github.com/OpenLMIS/openlmis-example-extension.git
+ git clone https://github.com/weronika-ciecierska/openlmis-example-extension.git
  ```
 2. Fork/clone `openlmis-example` repository from GitHub.
 
@@ -17,7 +17,7 @@ This example is meant to show an OpenLMIS 3.x Example Extension Module at work.
  ```
 3. Specify mainProjectPath (path to `openlmis-example`) in `gradle.properties` file.
 4. To assemble the outputs of project and create jar file run `gradle assemble`.
-5. To be able to use extension module with `openlmis-example` put .jar file from `build/libs` to `etc/openlmis/extensions`.
+5. To be able to use extension module with `openlmis-example` put jar file from `build/libs` to `etc/openlmis/extensions`.
 6. Copy example configuration file `extensions.xml` from this repository to `etc/openlmis`.
 7. Run `openlmis-example` and go to `http://<yourDockerIPAdress>:8080/extensionPoint` to see
 that the extended implementation of OrderQuantity interface is used.
@@ -27,7 +27,7 @@ that the extended implementation of OrderQuantity interface is used.
 In the sample repository, the following classes are example of extensions usage:
 
 - **AMCOrderQuantity.java** - class extending `OrderQuantity` interface from `openlmis-example` repository.
-- **AMCConfiguration.java** - class with `@Configuration` annotation, declares `@Bean` method that returns custom implementation
+- **AMCConfiguration.java** - class with `@Configuration` annotation, that declares `@Bean` method that returns custom implementation
 of OrderQuantity interface.
 
 ## <a name="extensions"></a> Configuration file
@@ -47,7 +47,7 @@ Syntax of xml configuration file:
 
 ## <a name="extensions"></a> Extensions & configuration file directory
 
-It is possible to change the path where the .jar files and configuration file should be placed.
+It is possible to change the path where the jar files and configuration file should be placed.
 It is defined in `docker-compose.yml` file:
 
 ```
