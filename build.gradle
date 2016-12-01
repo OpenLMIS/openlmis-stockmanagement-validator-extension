@@ -12,17 +12,19 @@ buildscript {
         mavenCentral()
     }
     dependencies {
+        classpath 'io.spring.gradle:dependency-management-plugin:0.6.1.RELEASE'
         classpath "org.springframework.boot:spring-boot-gradle-plugin:1.3.3.RELEASE"
     }
 }
 
 repositories {
     mavenCentral()
+    maven { url "https://oss.sonatype.org/content/repositories/snapshots" }
 }
 
 dependencies {
     compile "org.springframework.boot:spring-boot-starter-web"
-    compile project(':openlmis-example')
+    compile "org.openlmis:openlmis-example:0.0.1-SNAPSHOT"
 }
 
 springBoot {

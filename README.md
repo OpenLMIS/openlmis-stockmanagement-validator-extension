@@ -15,11 +15,10 @@ This example is meant to show an OpenLMIS 3.x Example Extension Module at work.
  ```shell
  git clone https://github.com/OpenLMIS/openlmis-example.git
  ```
-3. Specify mainProjectPath (path to `openlmis-example`) in `gradle.properties` file.
-4. To assemble the outputs of project and create jar file run `gradle assemble`.
-5. To be able to use extension module with `openlmis-example` put jar file from `build/libs` to `etc/openlmis/extensions`.
-6. Edit configuration file `extensions.properties` from openlmis-example repository to use your defined extension.
-7. Run `openlmis-example` and go to `http://<yourDockerIPAdress>:8080/extensionPoint` to see
+3. To assemble the outputs of project and create jar file run `gradle assemble`.
+4. To be able to use extension module with `openlmis-example` put jar file from `build/libs` to `etc/openlmis/extensions`.
+5. Edit configuration file `extensions.properties` from openlmis-example repository to use your defined extension.
+6. Run `openlmis-example` and go to `http://<yourDockerIPAdress>:8080/extensionPoint` to see
 that the extended implementation of OrderQuantity interface is used.
 
 ## <a name="extensions"></a> Example of extensions usage

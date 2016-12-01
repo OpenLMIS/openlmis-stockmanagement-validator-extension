@@ -1,3 +1,1 @@
 rootProject.name = 'openlmis-example-extension'
-include(':openlmis-example')
-project(':openlmis-example').projectDir = new File(mainProjectPath)
