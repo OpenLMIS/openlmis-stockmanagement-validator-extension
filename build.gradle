@@ -93,7 +93,7 @@ task sourcesJar(type: Jar) {
 artifacts {
     archives javadocJar, sourcesJar
 }
-signArchives.onlyIf {project.findProperty("signing.keyId") && project.findProperty("signing.password")}
+signArchives.onlyIf {project.getProperty("signing.keyId") && project.getProperty("signing.password")}
 
 uploadArchives {
     repositories {
