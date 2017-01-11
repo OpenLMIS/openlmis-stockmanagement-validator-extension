@@ -2,7 +2,7 @@
 This example is meant to show an OpenLMIS 3.x Example Extension Module at work.
 
 ## Prerequisites
-* Gradle 2.14+
+* Docker 1.11+
 
 ## Quick Start
 1. Fork/clone this repository from GitHub.
@@ -15,7 +15,7 @@ This example is meant to show an OpenLMIS 3.x Example Extension Module at work.
  ```shell
  git clone https://github.com/OpenLMIS/openlmis-example.git
  ```
-3. To assemble the outputs of project and create jar file run `gradle assemble`.
+3. To assemble the outputs of project and create jar file run `docker-compose run builder`.
 4. To be able to use extension module with `openlmis-example` put jar file from `build/libs` to `etc/openlmis/extensions`.
 5. Edit configuration file `extensions.properties` from openlmis-example repository to use your defined extension.
 6. Run `openlmis-example` and go to `http://<yourDockerIPAdress>:8080/extensionPoint` to see
