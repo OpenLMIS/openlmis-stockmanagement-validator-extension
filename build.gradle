@@ -5,10 +5,14 @@ version '0.0.1'
 
 apply plugin: 'java'
 apply plugin: 'spring-boot'
+apply plugin: 'checkstyle'
+apply plugin: 'jacoco'
+apply plugin: 'pmd'
 
 apply plugin: 'maven'
 apply plugin: 'maven-publish'
 apply plugin: 'signing'
+
 
 ext {
     ossrhUsername = System.getenv("OSSRH_USERNAME")
@@ -53,6 +57,36 @@ bootRepackage {
     enabled = false
 }
 
+checkstyle {
+    toolVersion = "7.1"
+}
+
+pmd {
+    toolVersion = '5.4.0'
+    consoleOutput= true
+    ignoreFailures = false
+    ruleSetFiles = files("config/pmd/ruleset.xml")
+    reportsDir = file("build/reports/pmd")
+}
+
+tasks.withType(Pmd){
+    reports {
+        xml.enabled true
+        html.enabled true
+    }
+}
+
+jacocoTestReport {
+    group = "reporting"
+    description = "Generate Jacoco coverage reports after running tests."
+    reports {
+        xml.enabled false
+        html.enabled true
+        csv.enabled false
+    }
+
+    additionalSourceDirs = files(sourceSets.main.allJava.srcDirs)
+}
 
 def time = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss")
 time.setTimeZone(TimeZone.getTimeZone("GMT"))

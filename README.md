@@ -25,8 +25,8 @@ that the extended implementation of OrderQuantity interface is used.
 
 In the sample repository, the following classes are example of extensions usage:
 
-- **AMCOrderQuantity.java** - class extending `OrderQuantity` interface from `openlmis-example` repository with `Component` annotation
-that contains extension ID.
+- **AmcOrderQuantity.java** - class extending `OrderQuantity` interface from `openlmis-example`
+repository with `Component` annotation that contains extension ID.
 
 
 ## <a name="extensions"></a> Extensions & configuration file directory
