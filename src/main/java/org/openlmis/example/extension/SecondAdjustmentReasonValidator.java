@@ -13,15 +13,17 @@
  * http://www.gnu.org/licenses.  For additional information contact info@OpenLMIS.org. 
  */
 
-package org.openlmis.example.extension;
+package org.openlmis.stockmanagement.extension;
 
-import org.openlmis.example.extension.point.OrderQuantity;
+import org.openlmis.stockmanagement.dto.StockEventDto;
+import org.openlmis.stockmanagement.extension.point.AdjustmentReasonValidator;
+import org.openlmis.stockmanagement.util.Message;
 import org.springframework.stereotype.Component;
 
-@Component("AmcOrderQuantity")
-public class AmcOrderQuantity implements OrderQuantity {
+@Component(value = "SecondAdjustmentReasonValidator")
+public class SecondAdjustmentReasonValidator implements AdjustmentReasonValidator {
 
-  public String getInfo() {
-    return "I am extended method";
+  public void validate(StockEventDto stockEventDto) {
+    throw new Message("Test extension");
   }
 }

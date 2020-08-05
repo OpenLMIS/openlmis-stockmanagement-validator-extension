@@ -4,6 +4,7 @@ services:
     image: openlmis/dev:1
     volumes:
       - '.:/app'
+      - '/home/user/.m2/repository/org/openlmis/openlmis-stockmanagement/5.1.2-SNAPSHOT:/build/libs'
     command:
       - './build.sh'
     environment:

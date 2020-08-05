@@ -40,17 +40,20 @@ buildscript {
 }
 
 repositories {
+    flatDir {
+        dirs '/build/libs'
+    }
     mavenCentral()
     maven { url "https://oss.sonatype.org/content/repositories/snapshots" }
 }
 
 dependencies {
     compile "org.springframework.boot:spring-boot-starter-web"
-    compile "org.openlmis:openlmis-example:0.0.1-SNAPSHOT"
+    compile "org.openlmis:openlmis-stockmanagement:5.1.2-SNAPSHOT"
 }
 
 springBoot {
-    mainClass = "org.openlmis.example.Application"
+    mainClass = "org.openlmis.stockmanagement.Application"
 }
 
 bootRepackage {
