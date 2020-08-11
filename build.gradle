@@ -1,7 +1,7 @@
 import java.text.SimpleDateFormat
 
-group 'org.openlmis.example.extension'
-version '0.0.1'
+group 'org.openlmis.stockmanagement.validators'
+version '5.1.2'
 
 apply plugin: 'java'
 apply plugin: 'spring-boot'
@@ -41,7 +41,7 @@ buildscript {
 
 repositories {
     flatDir {
-        dirs '/build/libs'
+        dirs '/libs/'
     }
     mavenCentral()
     maven { url "https://oss.sonatype.org/content/repositories/snapshots" }
@@ -49,7 +49,7 @@ repositories {
 
 dependencies {
     compile "org.springframework.boot:spring-boot-starter-web"
-    compile "org.openlmis:openlmis-stockmanagement:5.1.2-SNAPSHOT"
+    compile files('libs/openlmis-stockmanagement-5.1.2-SNAPSHOT.jar')
 }
 
 springBoot {
