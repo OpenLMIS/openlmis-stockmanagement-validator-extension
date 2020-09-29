@@ -5,14 +5,13 @@ version '0.0.1'
 
 apply plugin: 'java'
 apply plugin: 'spring-boot'
-apply plugin: 'checkstyle'
+//apply plugin: 'checkstyle'
 apply plugin: 'jacoco'
 apply plugin: 'pmd'
 
 apply plugin: 'maven'
-apply plugin: 'maven-publish'
+//apply plugin: 'maven-publish'
 apply plugin: 'signing'
-
 
 ext {
     ossrhUsername = System.getenv("OSSRH_USERNAME")
@@ -40,13 +39,15 @@ buildscript {
 }
 
 repositories {
+    flatDir {
+        dirs 'libs/'
+    }
     mavenCentral()
-    maven { url "https://oss.sonatype.org/content/repositories/snapshots" }
 }
 
 dependencies {
     compile "org.springframework.boot:spring-boot-starter-web"
-    compile "org.openlmis:openlmis-example:0.0.1-SNAPSHOT"
+    compile files("libs/openlmis-example-0.0.1-SNAPSHOT.jar")
 }
 
 springBoot {
@@ -55,10 +56,6 @@ springBoot {
 
 bootRepackage {
     enabled = false
-}
-
-checkstyle {
-    toolVersion = "7.1"
 }
 
 pmd {
@@ -85,7 +82,6 @@ jacocoTestReport {
         csv.enabled false
     }
 
-    additionalSourceDirs = files(sourceSets.main.allJava.srcDirs)
 }
 
 def time = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss")
