@@ -1,18 +1,27 @@
 import java.text.SimpleDateFormat
 
-group 'org.openlmis.example.extension'
-version '0.0.1'
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'io.spring.gradle:dependency-management-plugin:1.0.8.RELEASE'
+        classpath "org.springframework.boot:spring-boot-gradle-plugin:2.2.0.RELEASE"
+    }
+}
 
-apply plugin: 'java'
-apply plugin: 'spring-boot'
-apply plugin: 'checkstyle'
-apply plugin: 'jacoco'
-apply plugin: 'pmd'
+plugins {
+    id 'org.springframework.boot' version '2.2.0.RELEASE'
+    id 'io.spring.dependency-management' version '1.0.8.RELEASE'
+    id 'java'
+    id 'checkstyle'
+    id 'jacoco'
+    id 'pmd'
 
-apply plugin: 'maven'
-apply plugin: 'maven-publish'
-apply plugin: 'signing'
-
+    id 'maven'
+    id 'maven-publish'
+    id 'signing'
+}
 
 ext {
     ossrhUsername = System.getenv("OSSRH_USERNAME")
@@ -29,32 +38,26 @@ project.ext.buildTime = java.time.Instant.now().toString() // for versioning
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
-buildscript {
-    repositories {
-        mavenCentral()
-    }
-    dependencies {
-        classpath 'io.spring.gradle:dependency-management-plugin:0.6.1.RELEASE'
-        classpath "org.springframework.boot:spring-boot-gradle-plugin:1.3.3.RELEASE"
-    }
-}
-
 repositories {
+    flatDir {
+        dirs '/libs/'
+    }
     mavenCentral()
     maven { url "https://oss.sonatype.org/content/repositories/snapshots" }
 }
 
 dependencies {
     compile "org.springframework.boot:spring-boot-starter-web"
-    compile "org.openlmis:openlmis-example:0.0.1-SNAPSHOT"
+    annotationProcessor 'org.projectlombok:lombok:1.16.20'
+    compile files('libs/openlmis-stockmanagement-5.1.2-SNAPSHOT.jar')
 }
 
-springBoot {
-    mainClass = "org.openlmis.example.Application"
-}
-
-bootRepackage {
+bootJar {
     enabled = false
+}
+
+jar {
+    enabled = true
 }
 
 checkstyle {
