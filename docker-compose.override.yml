@@ -1,6 +1,6 @@
 version: "2"
 services:
-  example-extension:
+  stockmanagement-validator-extension:
     image: openlmis/dev:5.2
     volumes:
       - '.:/app'
