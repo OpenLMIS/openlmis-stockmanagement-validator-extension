@@ -1,5 +1,5 @@
-# OpenLMIS Stock Management Extension Module
-This example is meant to show an OpenLMIS 3.x Stock Management Extension Module at work.
+# OpenLMIS Stock Management Validator Extension Module
+This example is meant to show an OpenLMIS 3.x Stock Management Validator Extension Module at work.
 
 ## Prerequisites
 * Docker 1.11+
