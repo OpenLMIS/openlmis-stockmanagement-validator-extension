@@ -16,7 +16,7 @@
 package org.openlmis.stockmanagement.validators;
 
 import static org.openlmis.stockmanagement.i18n.MessageKeys.ERROR_DESTINATION_FREE_TEXT_NOT_ALLOWED;
-import static org.openlmis.stockmanagement.i18n.MessageKeys.ERROR_REASON_FREE_TEXT_NOT_ALLOWED;
+import static org.openlmis.stockmanagement.i18n.MessageKeys.ERROR_REASON_FREE_TEXT_NOT_ALLOWED_EXTENSION;
 import static org.openlmis.stockmanagement.i18n.MessageKeys.ERROR_SOURCE_DESTINATION_FREE_TEXT_BOTH_PRESENT;
 import static org.openlmis.stockmanagement.i18n.MessageKeys.ERROR_SOURCE_FREE_TEXT_NOT_ALLOWED;
 
@@ -89,7 +89,7 @@ public class ExtensionFreeTextValidator implements FreeTextValidator {
         && !isFreeTextAllowed(event, lineItem);
     boolean hasNoReasonIdButHasFreeText = !lineItem.hasReasonId();
     if (reasonNotAllowFreeText || hasNoReasonIdButHasFreeText) {
-      throwError(ERROR_REASON_FREE_TEXT_NOT_ALLOWED,
+      throwError(ERROR_REASON_FREE_TEXT_NOT_ALLOWED_EXTENSION,
           lineItem.getReasonId(), lineItem.getReasonFreeText());
     }
   }

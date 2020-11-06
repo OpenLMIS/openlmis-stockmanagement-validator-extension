@@ -17,7 +17,7 @@ package org.openlmis.stockmanagement.validators;
 
 import static java.util.stream.Collectors.summingInt;
 import static org.openlmis.stockmanagement.i18n.MessageKeys.ERROR_EVENT_CANNOT_UNPACK_CONSTITUENT_NOT_ACCOUNTED_FOR;
-import static org.openlmis.stockmanagement.i18n.MessageKeys.ERROR_EVENT_CANNOT_UNPACK_REGULAR_ORDERABLE;
+import static org.openlmis.stockmanagement.i18n.MessageKeys.ERROR_EVENT_CANNOT_UNPACK_REGULAR_ORDERABLE_EXTENSION;
 import static org.openlmis.stockmanagement.i18n.MessageKeys.ERROR_EVENT_CANNOT_UNPACK_WHEN_EXTRA_CONSTITUENTS_CREDITED;
 import static org.springframework.util.CollectionUtils.isEmpty;
 
@@ -95,7 +95,8 @@ public class ExtensionUnpackKitValidator implements UnpackKitValidator {
     // check if the orderable is a kit. if not throw exception.
     if (isEmpty(orderable.getChildren())) {
       throw new ValidationMessageException(
-          new Message(ERROR_EVENT_CANNOT_UNPACK_REGULAR_ORDERABLE, lineItem.getOrderableId()));
+          new Message(ERROR_EVENT_CANNOT_UNPACK_REGULAR_ORDERABLE_EXTENSION,
+              lineItem.getOrderableId()));
     }
     // check if the constituent products are all accounted for.
     orderable.getChildren().forEach(
