@@ -15,7 +15,6 @@
 
 package org.openlmis.stockmanagement.validators;
 
-import static org.openlmis.stockmanagement.i18n.MessageKeys.ERROR_EVENT_ADJUSTMENT_REASON_CATEGORY_INVALID;
 import static org.openlmis.stockmanagement.i18n.MessageKeys.ERROR_EVENT_ADJUSTMENT_REASON_TYPE_INVALID;
 
 import org.openlmis.stockmanagement.domain.reason.StockCardLineItemReason;
@@ -80,9 +79,7 @@ public class ExtensionAdjustmentReasonValidator implements AdjustmentReasonValid
 
   private void validReasonCategory(StockCardLineItemReason reason) {
     if (!reason.isAdjustmentReasonCategory()) {
-      throw new ValidationMessageException(
-          new Message(ERROR_EVENT_ADJUSTMENT_REASON_CATEGORY_INVALID,
-              reason.getReasonCategory()));
+      throw new ValidationMessageException("Invalid event adjustment reason category");
     }
   }
 }
