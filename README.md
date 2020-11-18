@@ -30,19 +30,19 @@ can be overridden. Extension modules can contain custom implementation of one or
 
 Decision about which implementation should be used is made based on the configuration file `extensions.properties`.
 This configuration file specifies which modules (implementations) should be used for the Service's extension points.
-In openlmis-example-extensions repository, there is an example of one such configuration file that specifies that a `NoKitsValidator` module
-should be used for the extension point `AdjustmentReasonValidator`.
+In openlmis-example-extensions repository, there is an example of one such configuration file that specifies that
+a `NoneValidator` module should be used for the extension point `AdjustmentReasonValidator`.
 
 ```
 #Example extensions configuration
-AdjustmentReasonValidator=NoKitsValidator
 AdjustmentReasonValidator=NoneValidator
-AdjustmentReasonValidator=ReasonFreeTextValidator
+FreeTextValidator=ReasonFreeTextValidator
+UnpackKitValidator=NoKitsValidator
 ```
 
 The extension point `AdjustmentReasonValidator` is an ID defined by the interface `AdjustmentReasonValidator.java`,
-while the extension module `NoKitsValidator` is an implementation of that interface whose name is a Spring Bean
-defined in `NoKitsValidator.java`
+while the extension module `NoneValidator` is an implementation of that interface whose name is a Spring Bean
+defined in `NoneValidator.java`
 
 Configuration file lives in independent service repository. Every extension module should be deployed as JAR.
 Example extension module and configuration file is published in the repository [openlmis-stockmanagement-validator-extension](https://github.com/OpenLMIS/openlmis-stockmanagement-validator-extension).
@@ -51,7 +51,7 @@ Following classes are example of extension points usage:
 
 - **AdjustmentReasonValidator.java** - sample extension point, that has Id defined in ExtensionPointId class.
 - **DefaultAdjustmentReasonValidator.java** - default implementation of that interface, it has `@Component` annotation that contains its Id.
-- **NoKitsValidator.java** -  class extending AdjustmentReasonValidator interface from openlmis-stockmanagement repository. It has `@Component` annotation that contains its Id.
+- **NoneValidator.java** -  class extending AdjustmentReasonValidator interface from openlmis-stockmanagement repository. It has `@Component` annotation that contains its Id.
 - **ExtensionManager.java** - class that has getExtensionByPointId method. It returns implementation of an extension class that is defined in
     configuration file for extension point with given Id.
 
