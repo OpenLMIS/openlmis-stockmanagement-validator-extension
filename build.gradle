@@ -40,7 +40,7 @@ targetCompatibility = 1.8
 
 repositories {
     mavenCentral()
-    maven { url "http://jaspersoft.artifactoryonline.com/jaspersoft/third-party-ce-artifacts/" }
+    maven { url "https://jaspersoft.jfrog.io/artifactory/third-party-ce-artifacts"}
     maven { url "http://jasperreports.sourceforge.net/maven2/" }
     maven { url "https://oss.sonatype.org/content/repositories/snapshots" }
 }
@@ -49,7 +49,7 @@ dependencies {
     compile "org.springframework.boot:spring-boot-starter-web"
     compile "org.slf4j:slf4j-ext"
     annotationProcessor 'org.projectlombok:lombok:1.16.20'
-    compile "org.openlmis:openlmis-stockmanagement:5.1.2-SNAPSHOT:exec"
+    compile "org.openlmis:openlmis-stockmanagement:5.1.4-SNAPSHOT:exec"
 }
 
 bootJar {
